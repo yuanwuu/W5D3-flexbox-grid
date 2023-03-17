@@ -65,17 +65,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // Part 7
 //Create a new .blog-post corresponding to the new city added in Part 6. You will have to create a new <div>with class of .blog-post, a new <h2>with text, and a new <p>with some text. Think about what order you want to create the elements, and what order you want to append them in.
 
-  // const post = document.createElement('div');
-  // post.classList.add('blog-post', 'purple');
-  // post.textContent = '<h2>NEW YORK</h2>';
-  
-  //document.getElementById('blog-post').append(post)
 
   const post = document.createElement('div');
-  post.classList.add('blog-post', 'purple');
+  post.classList.add('blog-post');
 
   const heading = document.createElement('h2');
   heading.textContent = 'NEW YORK';
+  heading.style.color = 'white';
   post.appendChild(heading); // <-- heading will be appended to the post in line 73
 
   const blogContent = document.createElement('p')
@@ -85,22 +81,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let mainBody = document.querySelector('.main')
   mainBody.appendChild(post);
 
-  //console.log(post)
 
 
 
   // Part 8
   /* When you reload the page, the script.js file loads a random DOM quote. Let's play with the included function:
 
-  Query select the #quote-title ID element and add a click event handler. That event handler should use the function randomQuote whenever #quote-titleis clicked. */
+  Query select the #quote-title ID element and add a click event handler. That event handler should use the function randomQuote whenever #quote-title is clicked. */
 
  
   const quote = document.getElementById('quote-title')
-  quote.addEventListener('click', function () {
-    const randomQuote = function () {
-      document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
-    };
-  });
+  quote.addEventListener('click', randomQuote); // <-- randomQuote is up in line 10 - 17
  
 
 
@@ -110,9 +101,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // The mouseouthandler should toggle the class .purple
   // The mouseenterhandler should toggle the class .red
 
-  const newAct = document.querySelectorAll('blog-post')
+
+  const mouseInOut = document.querySelectorAll('.blog-post')
+  // mouseInOut.forEach((item) => {
+  //   item.addEventListener('mouseout', function () {
+  //     item.classList.toggle = 'purple'
+  //   })
+    
+  // })
+  // console.log(mouseInOut)
+  
+for (let i of mouseInOut) {
+  i.addEventListener('mouseout',function (ele) {
+    if (i !== ele.target) {
+      return;
+    }
+    ele.target.classList.toggle('purple');
+  });
+
+  i.addEventListener('mouseenter',function (ele) {
+    if (i !== ele.target) {
+      return;
+    }
+    ele.target.classList.toggle('red');
+  });
+
+}
+
+ 
 
 
-  console.log(newAct)
 
 });
