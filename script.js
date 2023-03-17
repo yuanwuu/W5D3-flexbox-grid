@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //Select DOM's Favorite Things list and remove the last list item.
   const rmChild = document.getElementById("favorite-things");
   rmChild.removeChild(rmChild.children[5]);
+  //rmChild.removeChild(reChild.LastElementChild) <-- remove the last child
 
 
 
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Part 7
 //Create a new .blog-post corresponding to the new city added in Part 6. You will have to create a new <div>with class of .blog-post, a new <h2>with text, and a new <p>with some text. Think about what order you want to create the elements, and what order you want to append them in.
+
   // const post = document.createElement('div');
   // post.classList.add('blog-post', 'purple');
   // post.textContent = '<h2>NEW YORK</h2>';
@@ -71,14 +73,46 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const post = document.createElement('div');
   post.classList.add('blog-post', 'purple');
+
   const heading = document.createElement('h2');
   heading.textContent = 'NEW YORK';
-  post.appendChild(heading);
-  //document.getElementById('blog-post').appendChild(post);
+  post.appendChild(heading); // <-- heading will be appended to the post in line 73
 
-  console.log(post)
+  const blogContent = document.createElement('p')
+  blogContent.textContent = `anditiis harum quisquam eius sed odiusto fuga praesentiu optio, eaque rerum!`
+  post.appendChild(blogContent) // <-- heading will be appended to the post in line 73
+
+  let mainBody = document.querySelector('.main')
+  mainBody.appendChild(post);
+
+  //console.log(post)
+
+
 
   // Part 8
+  /* When you reload the page, the script.js file loads a random DOM quote. Let's play with the included function:
+
+  Query select the #quote-title ID element and add a click event handler. That event handler should use the function randomQuote whenever #quote-titleis clicked. */
+
+ 
+  const quote = document.getElementById('quote-title')
+  quote.addEventListener('click', function () {
+    const randomQuote = function () {
+      document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+    };
+  });
+ 
+
 
   // Part 9
+  // Select all .blog-post class elements. Iterate through the list of .blog-post class elements and apply two event handlers to each node. The first event handler should be listening for mouseoutevents while the second handler should be listening for mouseenterevents.
+
+  // The mouseouthandler should toggle the class .purple
+  // The mouseenterhandler should toggle the class .red
+
+  const newAct = document.querySelectorAll('blog-post')
+
+
+  console.log(newAct)
+
 });
