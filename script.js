@@ -103,13 +103,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
   const mouseInOut = document.querySelectorAll('.blog-post')
-  // mouseInOut.forEach((item) => {
-  //   item.addEventListener('mouseout', function () {
-  //     item.classList.toggle = 'purple'
-  //   })
-    
-  // })
-  // console.log(mouseInOut)
   
 for (let i of mouseInOut) {
   i.addEventListener('mouseout',function (ele) {
@@ -128,7 +121,13 @@ for (let i of mouseInOut) {
 
 }
 
- 
+   // mouseInOut.forEach((item) => {
+  //   item.addEventListener('mouseout', function () {
+  //     item.classList.toggle = 'purple'
+  //   })
+    
+  // })
+  // console.log(mouseInOut)
 
 
 
